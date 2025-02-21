@@ -1,6 +1,7 @@
 package net.lucky_bloxxx.funmod;
 
 import com.mojang.logging.LogUtils;
+import net.lucky_bloxxx.funmod.datagen.DataGenerators;
 import net.lucky_bloxxx.funmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -29,6 +30,8 @@ public class FunMod {
 
         ModItems.register(modEventBus);
 
+        modEventBus.register(DataGenerators.class);
+
         modEventBus.addListener(this::addCreative);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -38,8 +41,9 @@ public class FunMod {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS);
-        event.accept(ModItems.RUBY);
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.RUBY);
+        }
     }
 
     @SubscribeEvent

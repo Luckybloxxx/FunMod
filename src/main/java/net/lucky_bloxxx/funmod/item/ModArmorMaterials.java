@@ -19,14 +19,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModArmorMaterials {
-    public static final Holder<ArmorMaterial> EMERALD_ARMOR_MATERIAL = register("emerald", Util.make(new EnumMap<>(ArmorItem.Type.class),
-            attribute -> {
-                attribute.put(ArmorItem.Type.HELMET, 5);
-                attribute.put(ArmorItem.Type.LEGGINGS, 7);
-                attribute.put(ArmorItem.Type.CHESTPLATE, 9);
-                attribute.put(ArmorItem.Type.BOOTS, 5);
-                attribute.put(ArmorItem.Type.BODY, 11);
-            }), 15, 4f, 0.1f, () -> Items.EMERALD);
+    public static final Holder<ArmorMaterial> RUBY_ARMOR_MATERIAL = register("ruby", Util.make(new EnumMap<>(ArmorItem.Type.class),
+    attribute -> {
+        attribute.put(ArmorItem.Type.BOOTS, 5);
+        attribute.put(ArmorItem.Type.LEGGINGS, 7);
+        attribute.put(ArmorItem.Type.CHESTPLATE, 9);
+        attribute.put(ArmorItem.Type.HELMET, 5);
+        attribute.put(ArmorItem.Type.BODY, 11);
+    }), 15, 4f, 0.1f, () -> ModItems.RUBY.get());
 
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> typeProtection,
                                                   int enchantability, float toughness, float knockbackResistance,
